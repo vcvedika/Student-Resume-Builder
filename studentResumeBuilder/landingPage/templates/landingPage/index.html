@@ -1,0 +1,36 @@
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'landingPage/style.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title> Resume Builder </title>
+    </head>
+
+    <body>
+        <header>
+            <ul id="navbar">
+                <li id="resume-builder"><a href="#" style="color:white">RESUME BUILDER</a></li>
+                <li id="login"><a href="#" style="color:white">LOGIN</a></li>
+                <li id="register"><a href="#" style="color:white">REGISTER</a></li>
+                <li id="topic"><a style="color:white; font-size:2.8vh">Building Resume now at your ease!</a></li>
+            </ul>
+        </header>  
+        <main>
+            <div id="heading">
+                <h1 id="title">Welcome to the Resume Builder Website!</h1>
+                <p id="content">Resume of an individual holds great importance in representing ones entire work, life, personality and skills. This clearly emphasizes the dire need of a subtle precise resume. Well, this would not be your portion of concern. Let the Resume Builder Website do the heavy lifting!</p>
+                <button id="btn" style="color:white">
+                    <span style="margin:6%"> START BUILDING MY RESUME</span>
+                    <i class="fa fa-arrow-circle-right fa-lg" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div id="image">
+                <img id="img" src="{% static 'landingPage/image.jpg' %}">
+            </div>
+        </main>
+    </body>
+
+</html>
