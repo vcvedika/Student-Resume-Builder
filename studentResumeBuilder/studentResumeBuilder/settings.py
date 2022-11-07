@@ -13,6 +13,13 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 import os
 
+from decouple import config 
+SECRET_KEY = config('SECRET_KEY')
+DEBUG = config('DEBUG')
+
+import pymysql 
+pymysql.install_as_MySQLdb()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -32,6 +39,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "resumeGenerator.apps.ResumegeneratorConfig",
     "landingPage.apps.LandingpageConfig",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -76,9 +84,13 @@ WSGI_APPLICATION = "studentResumeBuilder.wsgi.application"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'resumeBuilder',
+        'USER': 'root',
+        'PASSWORD': config('PASSWORD'),
+        'HOST':'localhost',
+        'PORT':'3306',
     }
 }
 
