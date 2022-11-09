@@ -18,5 +18,8 @@ from django.urls import path,include
 
 urlpatterns = [
     path("", include('landingPage.urls')),
+    path("students/", include('django.contrib.auth.urls')),
+    path("students/", include('students.urls')),
+    path("resumeGenerator/", include('resumeGenerator.urls')),
     path("admin/", admin.site.urls),
 ]
