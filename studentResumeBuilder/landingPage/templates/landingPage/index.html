@@ -10,11 +10,12 @@
     </head>
 
     <body>
+        <div class="background">
         <header>
             <ul id="navbar">
-                <li id="resume-builder"><a href="#" style="color:white">RESUME BUILDER</a></li>
-                <li id="login"><a href="#" style="color:white">LOGIN</a></li>
-                <li id="register"><a href="#" style="color:white">REGISTER</a></li>
+                <li id="resume-builder"><a href="{% url 'landing-page' %}" style="color:white">RESUME BUILDER</a></li>
+                <li id="login"><a href="{% url 'login' %}" style="color:white">LOGIN</a></li>
+                <li id="register"><a href="{% url 'register'%}" style="color:white">REGISTER</a></li>
                 <li id="topic"><a style="color:white; font-size:2.8vh">Building Resume now at your ease!</a></li>
             </ul>
         </header>  
@@ -31,6 +32,7 @@
                 <img id="img" src="{% static 'landingPage/image.jpg' %}">
             </div>
         </main>
+    </div>
     </body>
 
 </html>
