@@ -62,9 +62,6 @@ body {
     animation: animate 12s linear infinite;
 }
 
-
-
-
 .background span:nth-child(0) {
     left: 29%;
     width: 197px;
