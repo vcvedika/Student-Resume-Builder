@@ -1,0 +1,27 @@
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style.css' %}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+        <title> Dashboard </title>
+    </head>
+
+    <body>
+        <h1 class="heading">Dashboard</h1>
+
+        <div class="view">
+            <button id="btn" class="btn btn-dark">View your Resume</button>
+        </div>
+
+        <div class="create">
+            <button id="btn" class="btn btn-dark">Create your Resume</button>
+        </div>
+
+        <div class="logout">
+            <button id="btn" class="btn btn-dark" onclick="location.href='{% url 'logout' %}'">Logout</button>
+        </div>
+    </body>
+</html>

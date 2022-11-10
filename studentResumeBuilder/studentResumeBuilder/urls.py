@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path,include
 
 urlpatterns = [
+    path("dashboard/", include('dashboard.urls')),
     path("", include('landingPage.urls')),
     path("students/", include('django.contrib.auth.urls')),
     path("students/", include('students.urls')),

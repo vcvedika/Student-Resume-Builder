@@ -11,7 +11,7 @@ def login_page(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('resume-form')
+            return redirect('dashboard')
         else:
             messages.success(request, ("There was an Error logging in.. please try again"))
             return redirect('login')

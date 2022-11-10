@@ -14,7 +14,6 @@ from pathlib import Path
 import os
 
 from decouple import config 
-SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG')
 
 import pymysql 
@@ -39,6 +38,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "dashboard.apps.DashboardConfig",
     "resumeGenerator.apps.ResumegeneratorConfig",
     "students.apps.StudentsConfig",
     "landingPage.apps.LandingpageConfig",
@@ -87,7 +87,7 @@ WSGI_APPLICATION = "studentResumeBuilder.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'studentUtility',
+        'NAME': 'resumeBuilder',
         'USER': 'root',
         'PASSWORD': config('PASSWORD'),
         'HOST':'localhost',
@@ -127,6 +127,8 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'landingPage/static'),
+    os.path.join(BASE_DIR, 'students/static'),
+    os.path.join(BASE_DIR, 'dashboard/static'),
 ]
 
 # Default primary key field type
