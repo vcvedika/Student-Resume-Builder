@@ -13,31 +13,45 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 30%;
     margin-top: 5%;
 }
 
 .heading {
     text-align: center;
-    padding-top: 10%;
+    padding-top: 8%;
 }
 
 .form {
-    width: 50%;
+    width: 55%;
     margin-left: 25%; 
     margin-top: 10%;
 }
 
+.form-group label {
+    padding-top: 5%;
+}
+
+#pop-up {
+    width: 85%;
+    align-items: center;
+    margin-left: 7.5%;
+}
+
 #submit-btn {
     margin-left: 40%;
-    margin-top: 5%;
+    margin-top: 8%;
+    box-shadow: -5px 5px 10px #090909;
+}
+
+#submit-button {
+    margin-left: 40%;
     box-shadow: -5px 5px 10px #090909;
 }
 
 .glass {
     background: rgb(255, 255, 255);
     min-height: 80vh;
-    width: 60%;
+    width: 45%;
     background: linear-gradient(
       to right bottom,
       rgba(226, 133, 250, 0.7),

@@ -5,15 +5,20 @@
 }
 
 body {
-    background-color: #21d4fd;
-    background-image: linear-gradient(360deg, #2454ff 0%, #af03ff 100%);
+    background-image: linear-gradient(270deg, #fd88fd 0%, #d01df4 100%);
+}
+
+
+.form-group label {
+    font-size: larger;
 }
 
 .form-group input, .form-group textarea {
-    background-color: whitesmoke;
     border-radius: 0.5rem;
-    box-shadow: -5px 5px 10px #090909;
     height: 6.5vh;
+    background-blend-mode: multiply;
+    background-repeat: no-repeat;
+    box-shadow: -4px 4px 10px  #f99af9, 4px -4px 10px #fd87fd;
 }
 
 #btn {
@@ -22,4 +27,5 @@ body {
    margin-left: 40%;
    height: 30%;
    width: 20%;
+   box-shadow: -5px 5px 10px #090909;
 }
