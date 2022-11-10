@@ -9,6 +9,14 @@
     margin-top: 10%;
 }
 
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 30%;
+    margin-top: 5%;
+}
+
 .view, .create, .logout {
     text-align: center;
     margin-top: 2%;   
@@ -19,7 +27,26 @@
 }
 
 #btn {
-   width: 15%;
+   width: 40%;
+   height: 6.5%;
+   margin-top: 5%;
+   box-shadow: -5px 5px 10px #090909;
+}
+
+.glass {
+    background: rgb(255, 255, 255);
+    min-height: 80vh;
+    width: 60%;
+    background: linear-gradient(
+      to right bottom,
+      rgba(226, 133, 250, 0.7),
+      rgba(144, 142, 248, 0.3)
+    );
+    border-radius: 2rem;
+    z-index: 2;
+    backdrop-filter: blur(2rem);
+    border-style: solid;
+    box-shadow: -10px 10px 15px rgba(0, 0, 0, 0.751), 10px -10px 15px rgba(0, 0, 0, 0.751);
 }
 
 
@@ -281,3 +308,4 @@
     z-index: 2;
     backdrop-filter: blur(2rem);
   }
+  

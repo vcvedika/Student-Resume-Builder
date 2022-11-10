@@ -32,18 +32,22 @@
             <span></span>
             <span></span>
         <div>
-        <h1 class="heading">Dashboard</h1>
+        <main>
+        <section class="glass">
+        <h1 class="heading"><strong><u>Dashboard</u></strong></h1>
 
         <div class="view">
             <button id="btn" class="btn btn-dark">View your Resume</button>
         </div>
 
         <div class="create">
-            <button id="btn" class="btn btn-dark">Create your Resume</button>
+            <button id="btn" class="btn btn-dark" onclick="location.href='{% url 'resume-form' %}'">Create your Resume</button>
         </div>
 
         <div class="logout">
             <button id="btn" class="btn btn-dark" onclick="location.href='{% url 'logout' %}'">Logout</button>
         </div>
+    </section>
+    </main>
     </body>
 </html>
