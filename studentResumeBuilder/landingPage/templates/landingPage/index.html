@@ -11,10 +11,49 @@
 
     <body>
         <div class="background">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            {% comment %} <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span> {% endcomment %}
+        <div>
         <header>
             <ul id="navbar">
                 <li id="resume-builder"><a href="{% url 'landing-page' %}" style="color:white">RESUME BUILDER</a></li>
-                <li id="login"><a href="{% url 'login' %}" style="color:white">LOGIN</a></li>
+                {% if user.is_authenticated %}
+                <li id="login"><a href="{% url 'logout' %}" style="color:white">
+                    LOGOUT
+                </a></li>
+                {% else %}
+                <li id="login"><a href="{% url 'login' %}" style="color:white">
+                    LOGIN
+                </a></li>
+                    {% endif %}
                 <li id="register"><a href="{% url 'register'%}" style="color:white">REGISTER</a></li>
                 <li id="topic"><a style="color:white; font-size:2.8vh">Building Resume now at your ease!</a></li>
             </ul>
@@ -23,16 +62,26 @@
             <div id="heading">
                 <h1 id="title">Welcome to the Resume Builder Website!</h1>
                 <p id="content">Resume of an individual holds great importance in representing ones entire work, life, personality and skills. This clearly emphasizes the dire need of a subtle precise resume. Well, this would not be your portion of concern. Let the Resume Builder Website do the heavy lifting!</p>
-                <button id="btn" style="color:white">
-                    <span style="margin:6%"> START BUILDING MY RESUME</span>
+                {% if user.is_authenticated %}
+                <button id="btn" style="color:white" onclick="location.href='{% url 'dashboard' %}'">
+                    <div style="margin:4%"> START BUILDING MY RESUME...
                     <i class="fa fa-arrow-circle-right fa-lg" aria-hidden="true"></i>
+                    </div>
                 </button>
+                {% else %}
+                <button id="btn" style="color:white" onclick="location.href='{% url 'login' %}'">
+                    <div style="margin:4%"> START BUILDING MY RESUME...
+                    <i class="fa fa-arrow-circle-right fa-lg" aria-hidden="true"></i>
+                    </div>
+                </button>
+                {% endif %}
             </div>
             <div id="image">
-                <img id="img" src="{% static 'landingPage/image.jpg' %}">
+                <img id="img" src="{% static 'landingPage/resumebg.png' %}">
             </div>
         </main>
     </div>
+</div>
     </body>
 
 </html>

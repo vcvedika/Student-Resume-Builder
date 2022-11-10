@@ -87,7 +87,7 @@ WSGI_APPLICATION = "studentResumeBuilder.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'resumeBuilder',
+        'NAME': 'studentUtility',
         'USER': 'root',
         'PASSWORD': config('PASSWORD'),
         'HOST':'localhost',
