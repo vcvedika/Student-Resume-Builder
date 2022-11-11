@@ -4,3 +4,6 @@ from django.shortcuts import render
 
 def resume_form(request):
     return render(request, 'resumeGenerator/input.html')
+
+def choose_template(request):
+    return render(request, 'resumeGenerator/chooseTemplate.html')
