@@ -6,7 +6,6 @@
   font-family: "Poppins", sans-serif;
 }
 body {
-  display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
@@ -23,6 +22,7 @@ body::before {
     clip-path: circle(30% at right 70%);
 }
 body::after {
+    opacity: 0;
     content: "";
     position: absolute;
     top: 0;

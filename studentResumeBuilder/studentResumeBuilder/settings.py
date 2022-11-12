@@ -65,7 +65,7 @@ ROOT_URLCONF = "studentResumeBuilder.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(BASE_DIR, 'templates/')],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -87,7 +87,7 @@ WSGI_APPLICATION = "studentResumeBuilder.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'resumeBuilder',
+        'NAME': 'studentUtility',
         'USER': 'root',
         'PASSWORD': config('PASSWORD'),
         'HOST':'localhost',
