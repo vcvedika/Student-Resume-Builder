@@ -1,5 +1,5 @@
 from django import forms
-from .models import resume,Experience, PersonalInfo, Education, PersonalInfo, Experience, Skills, Projects, About, Awards
+from .models import resume, Education, PersonalInfo, Skills, Projects, Achievements
 
 
 class PersonalInfoForm(forms.ModelForm):
@@ -25,26 +25,21 @@ class EducationForm(forms.ModelForm):
 
     class Meta:
         model = Education
-        fields = ('degree', 'stream', 'passing_year', 'result',)
+        fields = ('varsity_name', 'degree', 'stream', 'passing_year', 'result', 'school10_name', 'board10', 'passing_year10', 'result10', 'school12_name', 'board12', 'passing_year12', 'result12')
         widgets = {
-            'degree': forms.Select(attrs={'title': 'Degree'}),
+            'degree': forms.TextInput(attrs={'title': 'Degree'}),
             'stream': forms.TextInput(attrs={'title': 'Stream'}),
             'passing_year': forms.DateInput(attrs={'title': 'Passing Date'}),
-            'result': forms.TextInput(attrs={'title': 'Result'})
+            'result': forms.TextInput(attrs={'title': 'Result'}),
+            'school10_name': forms.TextInput(attrs={'title': 'School 10'}),
+            'board10': forms.TextInput(attrs={'title': 'Board 10'}),
+            'passing_year10': forms.DateInput(attrs={'title': 'Passing Date 10'}),
+            'result10': forms.TextInput(attrs={'title': 'Result 10'}),
+            'school12_name': forms.TextInput(attrs={'title': 'School 12'}),
+            'board12': forms.TextInput(attrs={'title': 'Board 12'}),
+            'passing_year12': forms.DateInput(attrs={'title': 'Passing Date 12'}),
+            'result12': forms.TextInput(attrs={'title': 'Result 12'}),
         }
-
-
-# class ExperienceForm(forms.ModelForm):
-
-#     class Meta:
-#         model = Experience
-#         fields = ('title', 'start_date', 'end_date', 'description',)
-#         widgets = {
-#             'title': forms.TextInput(attrs={'title': 'Title'}),
-#             'start_date': forms.DateInput(attrs={'title': 'Start Date'}),
-#             'end_date': forms.DateInput(attrs={'title': 'End Date'}),
-#             'description': forms.Textarea(attrs={'title': 'Description'})
-#         }
 
 
 class SkillsForm(forms.ModelForm):
@@ -69,25 +64,16 @@ class ProjectsForm(forms.ModelForm):
         }
 
 
-# class AboutForm(forms.ModelForm):
-
-#     class Meta:
-#         model = About
-#         fields = ('about_detail',)
-#         widgets = {
-
-#             'about_detail': forms.Textarea(attrs={'title': 'About_detail'})
-#         }
-
-class AwardsForm(forms.ModelForm):
+class AchievementsForm(forms.ModelForm):
 
     class Meta:
-        model = Awards
-        fields = ('award_detail',)
+        model = Achievements
+        fields = ('achievement_detail',)
         widgets = {
 
-            'award_detail': forms.Textarea(attrs={'title': 'Award_detail'})
+            'achievement_detail': forms.Textarea(attrs={'title': 'Achievement_detail'})
         }
+
 
 class resumeForm(forms.ModelForm):
 

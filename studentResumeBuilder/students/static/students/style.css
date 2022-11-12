@@ -50,8 +50,8 @@ main {
 
 .glass {
     background: rgb(255, 255, 255);
-    min-height: 80vh;
-    width: 45%;
+    min-height: 70vh;
+    width: 35%;
     background: linear-gradient(
       to right bottom,
       rgba(226, 133, 250, 0.7),

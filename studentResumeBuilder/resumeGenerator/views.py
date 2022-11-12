@@ -26,13 +26,13 @@ def resume_form(request):
         result = request.POST['result']
         skill_detail = request.POST['skill_detail']
         project_detail = request.POST['project_detail']
-        award_detail = request.POST['award_detail']
+        achievement_detail = request.POST['achievement_detail']
 
         user_resume = resume.objects.create(username = request.user.username,first_name = first_name, last_name = last_name,
                         address = address, email = email, github = github, linkedin = linkedin,
                         website = website, mobile = mobile, degree = degree, varsity_name = varsity_name,
                         passing_year = passing_year, result = result, skill_detail = skill_detail,
-                        project_detail = project_detail, award_detail = award_detail)
+                        project_detail = project_detail, achievement_detail = achievement_detail)
         user_resume.save()
         return redirect('dashboard')
     return render(request, 'resumeGenerator/input.html')
