@@ -34,17 +34,17 @@ class EducationForm(forms.ModelForm):
         }
 
 
-class ExperienceForm(forms.ModelForm):
+# class ExperienceForm(forms.ModelForm):
 
-    class Meta:
-        model = Experience
-        fields = ('title', 'start_date', 'end_date', 'description',)
-        widgets = {
-            'title': forms.TextInput(attrs={'title': 'Title'}),
-            'start_date': forms.DateInput(attrs={'title': 'Start Date'}),
-            'end_date': forms.DateInput(attrs={'title': 'End Date'}),
-            'description': forms.Textarea(attrs={'title': 'Description'})
-        }
+#     class Meta:
+#         model = Experience
+#         fields = ('title', 'start_date', 'end_date', 'description',)
+#         widgets = {
+#             'title': forms.TextInput(attrs={'title': 'Title'}),
+#             'start_date': forms.DateInput(attrs={'title': 'Start Date'}),
+#             'end_date': forms.DateInput(attrs={'title': 'End Date'}),
+#             'description': forms.Textarea(attrs={'title': 'Description'})
+#         }
 
 
 class SkillsForm(forms.ModelForm):
@@ -69,15 +69,15 @@ class ProjectsForm(forms.ModelForm):
         }
 
 
-class AboutForm(forms.ModelForm):
+# class AboutForm(forms.ModelForm):
 
-    class Meta:
-        model = About
-        fields = ('about_detail',)
-        widgets = {
+#     class Meta:
+#         model = About
+#         fields = ('about_detail',)
+#         widgets = {
 
-            'about_detail': forms.Textarea(attrs={'title': 'About_detail'})
-        }
+#             'about_detail': forms.Textarea(attrs={'title': 'About_detail'})
+#         }
 
 class AwardsForm(forms.ModelForm):
 

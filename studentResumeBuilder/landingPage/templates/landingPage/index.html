@@ -31,23 +31,8 @@
             <span></span>
             <span></span>
             <span></span>
+            {% include 'navbar.html' %}
         <div>
-        <header>
-            <ul id="navbar">
-                <li id="resume-builder"><a href="{% url 'landing-page' %}" style="color:white">RESUME BUILDER</a></li>
-                {% if user.is_authenticated %}
-                <li id="login"><a href="{% url 'logout' %}" style="color:white">
-                    LOGOUT
-                </a></li>
-                {% else %}
-                <li id="login"><a href="{% url 'login' %}" style="color:white">
-                    LOGIN
-                </a></li>
-                    {% endif %}
-                <li id="register"><a href="{% url 'register'%}" style="color:white">REGISTER</a></li>
-                <li id="topic"><a style="color:white; font-size:2.8vh">Building Resume now at your ease!</a></li>
-            </ul>
-        </header>  
         <main>
             <div id="heading">
                 <h1 id="title">Welcome to the Resume Builder Website!</h1>
