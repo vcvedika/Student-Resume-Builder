@@ -8,7 +8,7 @@ class PersonalInfoForm(forms.ModelForm):
 
         model = PersonalInfo
         fields = ('first_name', 'last_name',
-                  'address', 'email', 'github', 'linkedin', 'website',)
+                  'address', 'email', 'github', 'linkedin',)
 
         widgets = {
             'first_name': forms.TextInput(attrs={'title': 'First Name'}),
@@ -17,7 +17,6 @@ class PersonalInfoForm(forms.ModelForm):
             'email': forms.EmailInput(attrs={'title': 'Email'}),
             'github': forms.URLInput(attrs={'title': 'Github'}),
             'linkedin': forms.URLInput(attrs={'title': 'LinkedIn'}),
-            'website': forms.URLInput(attrs={'title': 'Website'}),
         }
 
 

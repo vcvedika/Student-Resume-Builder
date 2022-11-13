@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+
+	<title>Your Resume</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" media="all" /> 
+	<link rel="stylesheet" type="text/css" href="{% static 'resumeGenerator/resume1.css' %}" media="all" />
+
+</head>
+<body>
+
+<div id="doc2" class="yui-t7">
+	<div id="inner">
+	
+		<div id="hd">
+			<div class="yui-gc">
+				<div class="yui-u first">
+					<h1>{{first_name}} {{last_name}}</h1>
+					<p>{{address}}</p>
+				</div>
+
+				<div class="yui-u">
+					<div class="contact-info">
+						<h3><a href="#">{{email}}</a></h3>
+						<h3><a href="#">{{mobile}}</h3>
+						<h3><a href="#">{{github}}</a></h3>
+						<h3><a href="#">{{linkedin}}</a></h3>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="bd">
+			<div id="yui-main">
+				<div class="yui-b">
+
+					<div class="yui-gf">
+						<div class="yui-u first">
+							<h2>Skills</h2>
+						</div>
+						<div class="yui-u">
+								<div class="talent">
+									<p>{{skill_detail}}</p>
+								</div>
+						</div>
+					</div>
+
+					<div class="yui-gf">
+						<div class="yui-u first">
+							<h2>Education</h2>
+						</div>
+
+						<div class="yui-u">
+							<h2>{{school10_name}}</h2>
+							<h3>{{board10}} {{result10}} &mdash; <strong>{{passing_year10}}</strong></h3><br>
+						</div>
+						<div class="yui-u">
+							<h2>{{school12_name}}</h2>
+							<h3>{{board12}} {{result12}} &mdash; <strong>{{passing_year12}}</strong></h3><br>
+						</div>
+
+						<div class="yui-u">
+							<h2>{{varsity_name}}</h2>
+							<h3>{{stream}} {{degree}} {{result}} &mdash; <strong>{{passing_year}}</strong></h3>
+						</div>
+					</div>
+
+					<div class="yui-gf">
+						<div class="yui-u first">
+							<h2>Projects</h2>
+						</div>
+						<div class="yui-u">
+								<div class="talent">
+									<p>{{project_detail}}</p>
+								</div>
+						</div>
+					</div>
+
+					<div class="yui-gf">
+						<div class="yui-u first">
+							<h2>Aachievements</h2>
+						</div>
+						<div class="yui-u">
+								<div class="talent">
+									<p>{{achievement_detail}}</p>
+								</div>
+						</div>
+					</div>
+			
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
+

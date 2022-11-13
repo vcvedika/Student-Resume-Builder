@@ -10,7 +10,6 @@ class PersonalInfo(models.Model):
     email = models.EmailField()
     github = models.URLField(blank=True)
     linkedin = models.URLField(blank=True)
-    website = models.URLField(blank=True)
     mobile = models.PositiveIntegerField(blank=True)
 
     def full_name(self):
@@ -52,6 +51,7 @@ class Achievements(models.Model):
 
 
 class resume(models.Model):
+    template_number = models.PositiveIntegerField(default=0)
     username = models.CharField(max_length=255,blank=True)
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
@@ -59,7 +59,6 @@ class resume(models.Model):
     email = models.EmailField()
     github = models.URLField(blank=True)
     linkedin = models.URLField(blank=True)
-    website = models.URLField(blank=True)
     mobile = models.PositiveIntegerField(blank=True)
     
     varsity_name = models.CharField(max_length=255)
