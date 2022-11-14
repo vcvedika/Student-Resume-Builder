@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 import razorpay
 
+
 # Create your views here.
 
 from django.http import HttpResponse, HttpResponseBadRequest
@@ -198,13 +199,15 @@ def resume3(request):
 
 def switch_template(request):
     if not resume.objects.filter(username=request.user.username).exists():
-        return HttpResponse("Please build a resume first !!!!")
+        context = {'message': "Please build your resume first!!"}
+        return render(request, 'dashboard/dashboard.html', context)
     else:
         return redirect('choose-template')
 
 def resume_view(request):
     if not resume.objects.filter(username=request.user.username).exists():
-        return HttpResponse("Please build a resume first !!!!!!!!!!!")
+        context = {'message': "Please build your resume first!!"}
+        return render(request, 'dashboard/dashboard.html', context)
     my_resume = resume.objects.filter(username=request.user.username).get()
     context = {
         'first_name': my_resume.first_name,
@@ -269,11 +272,13 @@ def paymenthandler(request):
                     razorpay_client.payment.capture(payment_id, amount)
  
                     # render success page on successful caputre of payment
-                    return render(request, 'resumeGenerator/paymentsuccess.html')
+                    context = {'message': "Congratulations! Your payment is successful."}
+                    return render(request, 'dashboard/dashboard.html', context)
                 except:
  
                     # if there is an error while capturing payment.
-                    return render(request, 'resumeGenerator/paymentfail.html')
+                    context = {'message': "Payment unsuccessful! Please try again."}
+                    return render(request, 'dashboard/dashboard.html', context)
             else:
  
                 # if signature verification fails.
