@@ -17,13 +17,9 @@ main {
     margin-top: 5%;
 }
 
-.view, .create, .logout {
+.view, .create, .logout, .switch {
     text-align: center;
     margin-top: 2%;   
-}
-
-.view {
-    margin-top: 5%;
 }
 
 #btn {

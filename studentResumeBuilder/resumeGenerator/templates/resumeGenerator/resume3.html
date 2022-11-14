@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+
+   <meta charset="utf-8">
+	<title>Your Resume</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+   <link rel="stylesheet" href="{% static 'resumeGenerator/resume3.css' %}">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+<body>
+
+   <header id="home">
+
+      <div class="row banner">
+         <div class="banner-text">
+            <h1 class="responsive-headline">I'm {{first_name}} {{last_name}}</h1>
+            <h3>{{address}}</h3>
+   
+            <ul class="social">
+   
+               <li><a href="{{github}}"><i class="fa fa-github"></i></a></li>
+               <li><a href="{{linkedin}}"><i class="fa fa-linkedin"></i></a></li>
+               <li><a href="{{email}}"><i class="fa fa-envelope"></i></a></li>
+               <li><a href="#">{{mobile}}</a></li>
+
+            </ul>
+         </div>
+      </div>
+
+   </header> 
+
+   <section id="resume">
+
+      <!-- Education -->
+      <div class="row education">
+
+         <div class="three columns header-col">
+            <h1><span>Education</span></h1>
+         </div>
+
+         <div class="nine columns main-col">
+
+            <div class="row item">
+
+               <div class="twelve columns">
+
+                  <h3>{{school10_name}}</h3>
+                  <p class="info">{{board10}}<span>&bull;</span> <em class="date">{{passing_year10}}</em></p>
+
+                  <p>
+                     I did my 10th from {{school10_name}} the board being {{board10}} with a result of {{result10}}.
+                  </p>
+
+               </div>
+
+            </div> 
+
+            <div class="row item">
+
+               <div class="twelve columns">
+
+                  <h3>{{school12_name}}</h3>
+                  <p class="info">{{board12}}<span>&bull;</span> <em class="date">{{passing_year12}}</em></p>
+
+                  <p>
+                     I did my 12th from {{school12_name}} the board being {{board12}} with a result of {{result12}}.
+                  </p>
+
+               </div>
+
+            </div> 
+
+            <div class="row item">
+
+               <div class="twelve columns">
+
+                  <h3>{{varsity_name}}</h3>
+                  <p class="info">{{degree}}<span>&bull;</span> <em class="date">{{passing_year}}</em></p>
+
+                  <p>
+                     I'm currently pursuing {{degree}} degree from {{varsity_name}} in the field of {{stream}} with a current CPI of {{result}} and would be passing out in the year {{passing_year}}.
+                  </p>
+
+               </div>
+
+            </div> 
+         </div> 
+      </div>
+
+
+      <!-- Skills -->
+      <div class="row skill">
+
+         <div class="three columns header-col">
+            <h1><span>Skills</span></h1>
+         </div>
+         
+         <div class="nine columns main-col">
+
+            <p>{{skill_detail}}</p>
+
+
+			</div>
+      </div>
+
+      <!-- Projects -->
+      <div class="row skill">
+
+         <div class="three columns header-col">
+            <h1><span>Projects</span></h1>
+         </div>
+
+         <div class="nine columns main-col">
+
+            <p>{{project_detail}}</p>
+
+			</div>
+      </div>
+
+      <!-- Skills -->
+      <div class="row skill">
+
+         <div class="three columns header-col">
+            <h1><span>Achievements</span></h1>
+         </div>
+
+         <div class="nine columns main-col">
+
+            <p>{{achievement_detail}}</p>
+
+
+			</div>
+      </div>
+
+   </section>
+
+   <div class="dashboard" style="text-align:center" >
+      <button id="btn" class="btn btn-dark" onclick="location.href='{% url 'dashboard' %}'" style="margin-bottom:2%; margin-top:2%">Go to Dashboard</button>
+    </div>
+
+</body>
+
+</html>

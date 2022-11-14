@@ -12,30 +12,30 @@
     {% include 'navbar.html' %}
     <div class="container" style="align-items:center; margin:auto; margin-top: 4%">
       <div class="card">
-        <div class="content">
-          <h1>01</h1>
-          <h2>Template 1</h2>
+        <div class="content" style="background-image: url({% static 'resumeGenerator/resume1.png' %}); width: 280px; height: 400px;">
+          <h1></h1>
+          <h3>Template 1</h3>
           <p>
           </p>
           <a href="{% url 'resume1' %}">Click Here</a>
         </div>
       </div>
       <div class="card">
-        <div class="content">
-          <h1>02</h1>
+        <div class="content" style="background-image: url({% static 'resumeGenerator/resume2.png' %}); width: 280px; height: 400px;">
+          <h1></h1>
           <h2>Template 2</h2>
           <p>
           </p>
-          <a href="#">Click Here</a>
+          <a href="{% url 'resume2' %}">Click Here</a>
         </div>
       </div>
       <div class="card">
-        <div class="content">
-          <h1>03</h1>
+        <div class="content" style="background-image: url({% static 'resumeGenerator/resume3.png' %}); width: 280px; height: 400px;">
+          <h1></h1>
           <h2>Template 3</h2>
           <p>
           </p>
-          <a href="#">Click Here</a>
+          <a href="{% url 'resume3' %}">Click Here</a>
         </div>
       </div>
       <br />

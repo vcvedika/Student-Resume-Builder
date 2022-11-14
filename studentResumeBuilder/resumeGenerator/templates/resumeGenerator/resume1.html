@@ -84,7 +84,7 @@
 
 					<div class="yui-gf">
 						<div class="yui-u first">
-							<h2>Aachievements</h2>
+							<h2>Achievements</h2>
 						</div>
 						<div class="yui-u">
 								<div class="talent">
@@ -98,7 +98,9 @@
 		</div>
 	</div>
 </div>
-<a href="{% url 'dashboard' %}">Go to Dashboard</a> 
+<div class="dashboard">
+	<button id="btn" class="btn btn-dark" onclick="location.href='{% url 'dashboard' %}'" style="color:white; background-color:black; width:20vh; height:5vh; border-radius:1rem; margin-bottom:5%;">Go to Dashboard</button>
+</div>
 </body>
 </html>
 
