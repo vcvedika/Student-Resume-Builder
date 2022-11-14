@@ -1,14 +1,19 @@
 from django.shortcuts import redirect, render
+import razorpay
 
 # Create your views here.
 
-from django.http import HttpResponse
-from django.contrib.sites.requests import RequestSite
+from django.http import HttpResponse, HttpResponseBadRequest
+from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import get_user_model
 from .models import resume
+from django.conf import settings
 User = get_user_model()
 
 # Create your views here.
+
+razorpay_client = razorpay.Client(
+    auth=(settings.RAZOR_KEY_ID, settings.RAZOR_KEY_SECRET))
 
 def resume_form(request):
     if resume.objects.filter(username=request.user.username).exists():
@@ -116,19 +121,90 @@ def resume_form(request):
 
 
 def choose_template(request):
-    return render(request, 'resumeGenerator/chooseTemplate.html')
+    currency = 'INR'
+    amount = 50000
 
+    razorpay_order = razorpay_client.order.create(dict(amount=amount,
+                                                       currency=currency,
+                                                       payment_capture='0'))
+
+    # order id of newly created order.
+    razorpay_order_id = razorpay_order['id']
+    callback_url = 'paymenthandler/'
+ 
+    # we need to pass these details to frontend.
+    context = {}
+    context['razorpay_order_id'] = razorpay_order_id
+    context['razorpay_merchant_key'] = settings.RAZOR_KEY_ID
+    context['razorpay_amount'] = amount
+    context['currency'] = currency
+    context['callback_url'] = callback_url
+
+    return render(request, 'resumeGenerator/chooseTemplate.html', context)
 
 def resume1(request):
     my_resume = resume.objects.filter(username=request.user.username).get()
     my_resume.template_number = 1
     my_resume.save()
+
+    context = {
+        'first_name': my_resume.first_name,
+        'last_name': my_resume.last_name,
+        'address': my_resume.address,
+        'email': my_resume.email,
+        'github': my_resume.github,
+        'linkedin': my_resume.linkedin,
+        'mobile': my_resume.mobile,
+
+        'degree': my_resume.degree,
+        'varsity_name': my_resume.varsity_name,
+        'passing_year': my_resume.passing_year,
+        'stream': my_resume.stream,
+        'result': my_resume.result,
+
+        'school10_name': my_resume.school10_name,
+        'school12_name': my_resume.school12_name,
+        'board10': my_resume.board10,
+        'board12': my_resume.board12,
+        'passing_year10': my_resume.passing_year10,
+        'passing_year12': my_resume.passing_year12,
+        'result10': my_resume.result10,
+        'result12': my_resume.result12,
+
+
+        'skill_detail': my_resume.skill_detail,
+        'project_detail': my_resume.project_detail,
+        'achievement_detail': my_resume.achievement_detail,
+    }
+
+    if request.method == 'GET':
+        return render(request,'resumeGenerator/resume1.html', context)
+    
+    return render(request, 'resumeGenerator/resume1.html')
+
+def resume2(request):
+    my_resume = resume.objects.filter(username=request.user.username).get()
+    my_resume.template_number = 2
+    my_resume.save()
     
     return redirect('dashboard')
 
-def resume_view(request):
+def resume3(request):
+    my_resume = resume.objects.filter(username=request.user.username).get()
+    my_resume.template_number = 3
+    my_resume.save()
+    
+    return redirect('dashboard')
+
+def switch_template(request):
     if not resume.objects.filter(username=request.user.username).exists():
         return HttpResponse("Please build a resume first !!!!")
+    else:
+        return redirect('choose-template')
+
+def resume_view(request):
+    if not resume.objects.filter(username=request.user.username).exists():
+        return HttpResponse("Please build a resume first !!!!!!!!!!!")
     my_resume = resume.objects.filter(username=request.user.username).get()
     context = {
         'first_name': my_resume.first_name,
@@ -164,23 +240,48 @@ def resume_view(request):
         return render(request,'resumeGenerator/resume2.html', context)
     return render(request,'resumeGenerator/resume3.html', context)
 
-def resume2(request):
-    my_resume = resume.objects.filter(username=request.user.username).get()
-    my_resume.template_number = 2
-    my_resume.save()
-    
-    return redirect('dashboard')
+@csrf_exempt
 
-def resume3(request):
-    my_resume = resume.objects.filter(username=request.user.username).get()
-    my_resume.template_number = 3
-    my_resume.save()
-    
-    return redirect('dashboard')
-
-def switch_template(request):
-    if not resume.objects.filter(username=request.user.username).exists():
-        return HttpResponse("Please build a resume first !!!!")
+def paymenthandler(request):
+ 
+    # only accept POST request.
+    if request.method == "POST":
+        try:
+           
+            # get the required parameters from post request.
+            payment_id = request.POST.get('razorpay_payment_id', '')
+            razorpay_order_id = request.POST.get('razorpay_order_id', '')
+            signature = request.POST.get('razorpay_signature', '')
+            params_dict = {
+                'razorpay_order_id': razorpay_order_id,
+                'razorpay_payment_id': payment_id,
+                'razorpay_signature': signature
+            }
+ 
+            # verify the payment signature.
+            result = razorpay_client.utility.verify_payment_signature(
+                params_dict)
+            if result is not None:
+                amount = 50000  # Rs. 200
+                try:
+ 
+                    # capture the payemt
+                    razorpay_client.payment.capture(payment_id, amount)
+ 
+                    # render success page on successful caputre of payment
+                    return render(request, 'resumeGenerator/paymentsuccess.html')
+                except:
+ 
+                    # if there is an error while capturing payment.
+                    return render(request, 'resumeGenerator/paymentfail.html')
+            else:
+ 
+                # if signature verification fails.
+                return render(request, 'resumeGenerator/paymentfail.html')
+        except:
+ 
+            # if we don't find the required parameters in POST data
+            return HttpResponseBadRequest()
     else:
-        return redirect('choose-template')
-    
+       # if other than POST request is made.
+        return HttpResponseBadRequest()

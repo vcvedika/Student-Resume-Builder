@@ -21,17 +21,17 @@ class Education(models.Model):
     varsity_name = models.CharField(max_length=255)
     degree = models.CharField(max_length=50)
     stream = models.CharField(max_length=100)
-    passing_year = models.DateField()
+    passing_year = models.TextField(max_length=4)
     result = models.CharField(max_length=5)
 
     school10_name = models.CharField(max_length=255)
     board10 = models.CharField(max_length=100)
-    passing_year10 = models.DateField()
+    passing_year10 = models.TextField(max_length=4)
     result10 = models.CharField(max_length=5)
 
     school12_name = models.CharField(max_length=255)
     board12 = models.CharField(max_length=100)
-    passing_year12 = models.DateField()
+    passing_year12 = models.TextField(max_length=4)
     result12 = models.CharField(max_length=5)
 
 
@@ -64,17 +64,17 @@ class resume(models.Model):
     varsity_name = models.CharField(max_length=255)
     degree = models.CharField(max_length=50)
     stream = models.CharField(max_length=100)
-    passing_year = models.DateField()
+    passing_year = models.TextField(max_length=4)
     result = models.CharField(max_length=5)
 
     school10_name = models.CharField(max_length=255)
     board10 = models.CharField(max_length=100)
-    passing_year10 = models.DateField()
+    passing_year10 = models.TextField(max_length=4)
     result10 = models.CharField(max_length=5)
 
     school12_name = models.CharField(max_length=255)
     board12 = models.CharField(max_length=100)
-    passing_year12 = models.DateField()
+    passing_year12 = models.TextField(max_length=4)
     result12 = models.CharField(max_length=5)
 
     skill_detail = models.TextField()
