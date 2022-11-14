@@ -28,15 +28,15 @@ class EducationForm(forms.ModelForm):
         widgets = {
             'degree': forms.TextInput(attrs={'title': 'Degree'}),
             'stream': forms.TextInput(attrs={'title': 'Stream'}),
-            'passing_year': forms.DateInput(attrs={'title': 'Passing Date'}),
+            'passing_year': forms.TextInput(attrs={'title': 'Passing Date'}),
             'result': forms.TextInput(attrs={'title': 'Result'}),
             'school10_name': forms.TextInput(attrs={'title': 'School 10'}),
             'board10': forms.TextInput(attrs={'title': 'Board 10'}),
-            'passing_year10': forms.DateInput(attrs={'title': 'Passing Date 10'}),
+            'passing_year10': forms.TextInput(attrs={'title': 'Passing Date 10'}),
             'result10': forms.TextInput(attrs={'title': 'Result 10'}),
             'school12_name': forms.TextInput(attrs={'title': 'School 12'}),
             'board12': forms.TextInput(attrs={'title': 'Board 12'}),
-            'passing_year12': forms.DateInput(attrs={'title': 'Passing Date 12'}),
+            'passing_year12': forms.TextInput(attrs={'title': 'Passing Date 12'}),
             'result12': forms.TextInput(attrs={'title': 'Result 12'}),
         }
 

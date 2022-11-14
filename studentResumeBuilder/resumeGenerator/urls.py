@@ -8,5 +8,6 @@ urlpatterns = [
     path('view/', views.resume_view, name='resume-view'),
     path('resume2/', views.resume2, name='resume2'),
     path('resume3/', views.resume3, name='resume3'),
-    path('switch/', views.switch_template, name='resume-switch')
+    path('switch/', views.switch_template, name='resume-switch'),
+    path('paymenthandler/', views.paymenthandler, name='paymenthandler'),
 ]
