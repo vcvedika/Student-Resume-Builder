@@ -4,17 +4,17 @@ Register
 {% endblock title %}
 {% block content %}
         <div>
+            {% if form.errors %}
+            <div class="alert alert-warning alert-dismissible fade show" id="pop-up" style="width:350px; text-align:center; position:absolute; bottom:0; right:0; margin-bottom:4%; margin-right:2%;">
+                There was an error with your form
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        {% endif %}
         <main>
         <section class="glass">
         <h1 class="heading" style="margin-bottom: -8%;"><strong><u>Register</u></strong></h1>
         <br/><br/>
         
-        {% if form.errors %}
-            <div class="alert alert-warning alert-dismissible fade show" id="pop-up">
-                There was an error with your form
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            </div>
-        {% endif %}
         <form action="{% url 'register' %}" method="POST">
             {% csrf_token %}
 

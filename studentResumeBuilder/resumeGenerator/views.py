@@ -282,7 +282,8 @@ def paymenthandler(request):
             else:
  
                 # if signature verification fails.
-                return render(request, 'resumeGenerator/paymentfail.html')
+                context = {'message': "Payment unsuccessful! Please try again."}
+                return render(request, 'dashboard/dashboard.html', context)
         except:
  
             # if we don't find the required parameters in POST data
