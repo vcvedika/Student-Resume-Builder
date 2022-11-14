@@ -307,3 +307,7 @@ main {
     bottom: -147px;
     animation-delay: 34s;
 }
+
+#pop-up {
+    align-items: right;
+}
