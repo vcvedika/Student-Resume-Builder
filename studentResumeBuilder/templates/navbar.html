@@ -1,16 +1,16 @@
 <header>
     <ul id="navbar">
-        <li id="resume-builder"><a href="{% url 'landing-page' %}" style="color:white">RESUME BUILDER</a></li>
+        <li id="resume-builder"><a href="{% url 'landing-page' %}" style="color:white; text-decoration:none">RESUME BUILDER</a></li>
         {% if user.is_authenticated %}
-        <li id="login"><a href="{% url 'logout' %}" style="color:white">
+        <li id="login"><a href="{% url 'logout' %}" style="color:white; text-decoration:none">
             LOGOUT
         </a></li>
         {% else %}
-        <li id="login"><a href="{% url 'login' %}" style="color:white">
+        <li id="login"><a href="{% url 'login' %}" style="color:white; text-decoration:none">
             LOGIN
         </a></li>
             {% endif %}
-        <li id="register"><a href="{% url 'register'%}" style="color:white">REGISTER</a></li>
+        <li id="register"><a href="{% url 'register'%}" style="color:white; text-decoration:none">REGISTER</a></li>
         <li id="topic"><a style="color:white; font-size:2.8vh">Building Resume now at your ease!</a></li>
     </ul>
 </header>   

@@ -34,18 +34,22 @@
             {% include 'navbar.html' %}
         <div>
         <main>
-        <section class="glass">
+        <section class="glass" style="min-height:70vh">
         <h1 class="heading"><strong><u>Dashboard</u></strong></h1>
 
-        <div class="view">
-            <button id="btn" class="btn btn-dark">View your Resume</button>
-        </div>
-
-        <div class="create">
+        <div class="create" style="margin-top:2%">
             <button id="btn" class="btn btn-dark" onclick="location.href='{% url 'resume-form' %}'">Create/Edit your Resume</button>
         </div>
 
-        <div class="logout">
+        <div class="view" style="margin-top:0%">
+            <button id="btn" class="btn btn-dark" onclick="location.href='{% url 'resume-view' %}'">View your Resume</button>
+        </div>
+
+        <div class="switch" style="text-align:center; margin-top:0%">
+            <button id="btn" class="btn btn-dark" onclick="location.href='{% url 'resume-switch' %}'">Switch your Resume Template</button>
+        </div>
+
+        <div class="logout" style="margin-top:0%">
             <button id="btn" class="btn btn-dark" onclick="location.href='{% url 'logout' %}'">Logout</button>
         </div>
     </section>

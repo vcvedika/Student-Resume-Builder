@@ -65,6 +65,7 @@ body::after {
   opacity: 1;
   transition: 0.5s;
 }
+
 .container .card:hover .content {
   transform: translateY(0px);
   opacity: 1;
