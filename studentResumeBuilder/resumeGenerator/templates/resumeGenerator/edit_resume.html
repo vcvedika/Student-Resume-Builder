@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="{% static 'resumeGenerator/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Resume Editor Page</title>
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+<div class="container">
+  <p style="text-align: center; font-size: 40px; font-weight: bold; padding-top: 30px; padding-bottom: 30px;"><strong><u>Edit Your Resume</u></strong</p>
+
+  <form method="POST">
+    {% csrf_token %}
+
+    <div class="form-group">
+          <label for="exampleFormControlInput1"><strong>First Name</strong></label>
+          <input name="first_name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Your First name..." value="{{ first_name }}">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1"><strong>Last Name</strong></label>
+        <input name="last_name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Your Last name..." value="{{ last_name }}">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1"><strong>Email</strong></label>
+        <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Your Email address..." value="{{ email }}">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1"><strong>Address</strong></label>
+        <input name="address" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Your Address..." value="{{ address }}">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1"><strong>Mobile Number</strong></label>
+        <input name="mobile" type="number" class="form-control" id="exampleFormControlInput1" placeholder="Your Mobile Number..." value="{{ mobile }}">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1"><strong>LinkedIn</strong></label>
+        <input name="linkedin" type="url" class="form-control" id="exampleFormControlInput1" placeholder="https://example.com" pattern="https://.*" value="{{ linkedin }}">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1"><strong>GitHub</strong></label>
+        <input name="github" type="url" class="form-control" id="exampleFormControlInput1" placeholder="https://example.com" pattern="https://.*"  value="{{ github }}">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1"><strong>Degree</strong></label>
+        <input name="degree" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Your Degree..." value="{{ degree }}">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1"><strong>Stream</strong></label>
+        <input name="stream" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Your Stream..." value="{{ stream }}">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1"><strong>University Name</strong></label>
+        <input name="varsity_name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Your University name..." value="{{ varsity_name }}">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1"><strong>Passing Year</strong></label>
+        <input name="passing_year" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Your Passing year..." value="{{ passing_year }}">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1"><strong>Result</strong></label>
+        <input name="result" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Your Current CPI..." value="{{ result }}">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1"><strong>10th School Name</strong></label>
+        <input name="school10_name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Your 10th school name..." value="{{ school10_name }}">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1"><strong>10th Board</strong></label>
+        <input name="board10" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Your 10th Board..." value="{{ board10 }}">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1"><strong>10th Passing year</strong></label>
+        <input name="passing_year10" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Your 10th passing year..." value="{{ passing_year10 }}">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1"><strong>10th Result</strong></label>
+         <input name="result10" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Your 10th result..." value="{{ result10 }}">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1"><strong>12th School Name</strong></label>
+        <input name="school12_name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Your 12th school name..." value="{{ school12_name }}">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1"><strong>12th Board</strong></label>
+        <input name="board12" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Your 12th board name..." value="{{ board12 }}">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1"><strong>12th Passing year</strong></label>
+        <input name="passing_year12" type="date" class="form-control" id="exampleFormControlInput1" placeholder="Your 12th passing year..." value="{{ passing_year12 }}">
+    </div>
+
+    <div class="form-group">
+         <label for="exampleFormControlInput1"><strong>12th Result</strong></label>
+        <input name="result12" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Your 12th result..." value="{{ result12 }}">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1"><strong>Skills</strong></label>
+        <textarea name="skill_detail" type="text" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Your Skills...">{{ skill_detail }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1"><strong>Projects</strong></label>
+        <textarea name="project_detail" type="text" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Your Projects...">{{ project_detail }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1"><strong>Achievements</strong></label>
+        <textarea name="achievement_detail" type="text" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Your Achievements...">{{ achievement_detail }}</textarea>
+    </div>
+
+    <button class="btn btn-dark" id="btn" type="submit">Build Resume</button>
+  </form>
+</div>
+
+</body>
+</html>
