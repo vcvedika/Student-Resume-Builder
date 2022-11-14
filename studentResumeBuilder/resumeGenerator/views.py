@@ -159,3 +159,40 @@ def resume1(request):
     
     return render(request, 'resumeGenerator/resume1.html')
 
+def resume_view(request):
+    if not resume.objects.filter(username=request.user.username).exists():
+        return HttpResponse("Please build a resume first !!!!!!!!!!!")
+    my_resume = resume.objects.filter(username=request.user.username).get()
+    context = {
+        'first_name': my_resume.first_name,
+        'last_name': my_resume.last_name,
+        'address': my_resume.address,
+        'email': my_resume.email,
+        'github': my_resume.github,
+        'linkedin': my_resume.linkedin,
+        'mobile': my_resume.mobile,
+
+        'degree': my_resume.degree,
+        'varsity_name': my_resume.varsity_name,
+        'passing_year': my_resume.passing_year,
+        'stream': my_resume.stream,
+        'result': my_resume.result,
+
+        'school10_name': my_resume.school10_name,
+        'school12_name': my_resume.school12_name,
+        'board10': my_resume.board10,
+        'board12': my_resume.board12,
+        'passing_year10': my_resume.passing_year10,
+        'passing_year12': my_resume.passing_year12,
+        'result10': my_resume.result10,
+        'result12': my_resume.result12,
+
+        'skill_detail': my_resume.skill_detail,
+        'project_detail': my_resume.project_detail,
+        'achievement_detail': my_resume.achievement_detail,
+    }
+    if my_resume.template_number == 1:
+        return render(request,'resumeGenerator/resume1.html', context)
+    if my_resume.template_number == 2:
+        return render(request,'resumeGenerator/resume2.html', context)
+    return render(request,'resumeGenerator/resume3.html', context)
