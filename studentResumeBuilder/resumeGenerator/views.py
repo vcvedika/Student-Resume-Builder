@@ -273,6 +273,7 @@ def paymenthandler(request):
  
                     # render success page on successful caputre of payment
                     context = {'message': "Congratulations! Your payment is successful."}
+                    resume.objects.filter(username=request.user.username).update(template_number=3)
                     return render(request, 'dashboard/dashboard.html', context)
                 except:
  
