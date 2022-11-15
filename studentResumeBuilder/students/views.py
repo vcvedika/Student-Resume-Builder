@@ -13,7 +13,7 @@ def login_page(request):
             login(request, user)
             return redirect('dashboard')
         else:
-            messages.success(request, ("There was an error logging in.. please try again"))
+            messages.error(request, ("There was an error logging in.. please try again"))
             return redirect('login')
     else:
         return render(request, 'students/login.html', {})
